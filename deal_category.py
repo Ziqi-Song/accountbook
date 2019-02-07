@@ -1,31 +1,58 @@
 # -*- coding: UTF-8 -*-
-
+"""
+Process the category information in ./Config/category.json
+"""
 import json
+import os
 
-class deal_category:
+class Category:
     """
-    消费分类的管理
+    Manage deal categories: add, delete, show
     """
     def __init__(self):
         """
-        初始化所有消费类别
+        Initialization of class
+        category_list = [
+            {"name": "", "id": 1, "Chinese name"： “”},
+            ......
+        ]
         """
-        file = open('./Config/category.json', 'r')
-        self.category_list = json.load(file)
+        if os.path.isfile('./Config/category.json'):
+            self.category_list = json.load(open('./Config/category.json', 'r'))
+        else:
+            print("<Category.__init__> Error: Cannot find category.json.")
 
 
-    def delete_category(self, category_name):
+    def delete_category(self, category_id):
         """
-        删除一个消费类别
-        :param category_name: 需要删除的消费类别
+        Delete a specified category from category.json
+        :param category_id: id of the category to be deleted
         :return:
         """
-        self.category_list.remove(category_name)
+        if category_id <= 0 or category_id > len(self.category_list):
+            print("<Category.delete_category> Error: category_id should be in range ({}, {})".format(0, len(self.category_list)))
+        else:
+            del self.category_list[category_id - 1]
+        json.dump(self.category_list, open('./Config/category.json', 'w'))
+        self.category_list = json.load(open('./Config/category.json', 'r'))
 
-    def add_category(self, category_name):
+    def add_category(self, category_English_name, category_Chinese_name):
         """
-        增加一个消费类别
-        :param category_name: 需要增加的消费类别
+        Add a category
+        :param category_English_name: English name of the category
+        :param category_Chinese_name: Chinese_name of the category
         :return:
         """
-        self.category_list.append(category_name)
+        self.category_list.append({'id': len(self.category_list) + 1,
+                                   'name': category_English_name,
+                                   'Chinese name': category_Chinese_name})
+        json.dump(self.category_list, open('./Config/category.json', 'w'))
+        self.category_list = json.load(open('./Config/category.json', 'r'))
+
+    def show_category(self):
+        """
+        Print category
+        :return:
+        """
+        for _, category in enumerate(self.category_list):
+            print("{}: {} {}".format(category['id'], category['name'], category['Chinese name']))

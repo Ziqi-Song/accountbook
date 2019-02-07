@@ -1,15 +1,22 @@
 # -*- coding: UTF-8 -*-
-
-import numpy as np
+"""
+资金变动的记录：消费记录、收入记录
+"""
 import time
 import json
 import os
 
-from deal_category import deal_category
+from deal_category import Category
 
 def add_deal():
-    date = {'year':0, 'month':0, 'day':0}
-    category = deal_category()
+    """
+    Add a deal record.
+    :return:
+    """
+    _RECORD_PATH = './Records/'
+
+    date = {'year': 0, 'month': 0, 'day': 0}
+    categories = Category()
     amount = 0
     note = ""
 
@@ -20,47 +27,85 @@ def add_deal():
     date['month'] = input_date.split('-')[1]
     date['day']   = input_date.split('-')[2]
 
+    record_file_name = str(date['year']) + '_' + str(date['month']) + '.json'
+
+    if os.path.isfile(_RECORD_PATH + record_file_name):
+        month_deal_list = json.load(open(_RECORD_PATH + record_file_name, 'r'))
+    else:
+        month_deal_list = []
+
     print("\n目前可选的消费类别有：")
-    for i in range(len(category.category_list)):
-        print("{} - {}".format(i, category.category_list[i]))
+    categories.show_category()
     category_index = int(input("请选择消费类别："))
 
     amount = float(input("\n请输入消费金额："))
 
     note = input("\n请输入消费详情：")
 
-    deal = {'date':date,
-            'category':category.category_list[category_index],
-            'amount':amount,
-            'note':note}
+    deal_id = date['year'] + date['month'] + str(len(month_deal_list) + 1)
 
-    record_file_name = str(date['year']) + '_' + str(date['month'])
-    if os.path.isfile('./Records/' + record_file_name + '.json'):
-        month_deal_list = json.load(open('./Records/' + record_file_name + '.json', 'r'))
-        month_deal_list.append(deal)
-        json.dump(month_deal_list, open('./Records/' + record_file_name + '.json', 'w'))
-    else:
-        json.dump([deal], open('./Records/' + record_file_name + '.json', 'w'))
+    deal = {'date': date,
+            'category': category_index,
+            'amount': amount,
+            'note': note,
+            'id': deal_id}
 
-    print("\n已保存。")
+    month_deal_list.append(deal)
+    json.dump(month_deal_list, open(_RECORD_PATH + record_file_name, 'w'))
+
+    print("\n已保存。\n")
 
 def get_monthly_deal(year, month):
-    record_file_name = str(year) + '_' + str(month)
-    month_deal_list = json.load(open('./Records/' + record_file_name + '.json', 'r'))
+    """
+    Print all deal records of a specific month.
+    :param year:
+    :param month:
+    :return:
+    """
+    categories = Category()
+    _RECORD_PATH = './Records/'
+    record_file_name = str(year) + '_' + str(month) + '.json'
+    month_deal_list = json.load(open(_RECORD_PATH + record_file_name, 'r'))
     deal_count = len(month_deal_list)
     print("{}年{}月共有{}笔交易.".format(year, month, deal_count))
-    for deal in month_deal_list:
-        for day in range(1, 32):
-            if int(deal['date']['year']) == int(year) and int(deal['date']['month']) == int(month) and int(deal['date']['day']) == int(day):
-                print("日期：{}-{}-{}\n类别：{}\n消费金额：{}\n详情：{}\n".format(deal['date']['year'], deal['date']['month'], deal['date']['day'], deal['category'], deal['amount'], deal['note']))
+
+    for day in range(1, 32):
+        for deal in month_deal_list:
+            if int(deal['date']['year']) == int(year) and \
+               int(deal['date']['month']) == int(month) and \
+               int(deal['date']['day']) == int(day):
+                for category in categories.category_list:
+                    if category['id'] == deal['category']:
+                        category_name = category['Chinese name']
+                        break
+                print("日期：{}-{}-{}".format(deal['date']['year'], deal['date']['month'], deal['date']['day']))
+                print("类别：{}".format(category_name))
+                print("消费金额：{}".format(deal['amount']))
+                print("详情：{}".format(deal['note']))
+
 
 def get_daily_deal(year, month, day):
-    record_file_name = str(year) + '_' + str(month)
-    month_deal_list = json.load(open('./Records/' + record_file_name + '.json', 'r'))
+    """
+    打印指定日期的所有资金变动记录
+    :param year:
+    :param month:
+    :param day:
+    :return:
+    """
+    categories = Category()
+    _RECORD_PATH = './Records/'
+    record_file_name = str(year) + '_' + str(month) + '.json'
+    month_deal_list = json.load(open(_RECORD_PATH + record_file_name, 'r'))
 
     for deal in month_deal_list:
-        if deal['date']['year'] == int(year) and deal['date']['month'] == int(month) and deal['date']['day'] == int(day):
-            print("日期：{}-{}-{}\n类别：{}\n消费金额：{}\n详情：{}\n".format(deal['date']['year'], deal['date']['month'],
-                                                                deal['date']['day'], deal['category'], deal['amount'],
-                                                                deal['note']))
-
+        if int(deal['date']['year']) == int(year) and \
+           int(deal['date']['month']) == int(month) and \
+           int(deal['date']['day']) == int(day):
+            for category in categories.category_list:
+                if category['id'] == deal['category']:
+                    category_name = category['Chinese name']
+                    break
+            print("日期：{}-{}-{}".format(deal['date']['year'], deal['date']['month'], deal['date']['day']))
+            print("类别：{}".format(category_name))
+            print("消费金额：{}".format(deal['amount']))
+            print("详情：{}".format(deal['note']))
