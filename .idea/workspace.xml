@@ -1,55 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d91b403-1d9a-4313-a198-1227e72cd132" name="Default Changelist" comment="" />
+    <list default="true" id="3d91b403-1d9a-4313-a198-1227e72cd132" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adjust_records.py" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-651241340">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="py" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Python" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="py" value="1918" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Python" value="1918" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/account_book.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+            <state relative-caret-position="309">
+              <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
               <folding>
                 <element signature="e#25#43#0" expanded="true" />
-                <marker date="1535294068858" expanded="true" signature="434:437" ph="..." />
+                <marker date="1549505247525" expanded="true" signature="877:880" ph="..." />
               </folding>
             </state>
           </provider>
@@ -58,12 +29,50 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deal_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="1605">
+              <caret line="107" column="105" selection-start-line="107" selection-start-column="105" selection-end-line="107" selection-end-column="105" />
               <folding>
-                <element signature="e#25#43#0" expanded="true" />
-                <marker date="1535294068890" expanded="true" signature="228:233" ph="..." />
+                <element signature="e#50#61#0" expanded="true" />
+                <marker date="1549436501343" expanded="true" signature="324:329" ph="..." />
+                <marker date="1549436501343" expanded="true" signature="1697:1702" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/deal_statistics.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="53" column="18" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="18" />
+              <folding>
+                <element signature="e#49#58#0" expanded="true" />
+                <marker date="1549521639234" expanded="true" signature="154:159" ph="..." />
+                <marker date="1549521639234" expanded="true" signature="608:1009" ph="..." />
+                <marker date="1549521639234" expanded="true" signature="1034:1039" ph="..." />
+                <marker date="1549521639234" expanded="true" signature="1068:1073" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deal_category.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+              <folding>
+                <marker date="1549369656414" expanded="true" signature="191:196" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Records/2019_1.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="63" selection-start-column="55" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -77,12 +86,32 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>9.64</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Records/2018_9.json" />
+        <option value="$PROJECT_DIR$/Records/2018_10.json" />
+        <option value="$PROJECT_DIR$/Records/2018_11.json" />
+        <option value="$PROJECT_DIR$/adjust_records.py" />
+        <option value="$PROJECT_DIR$/add_id.py" />
+        <option value="$PROJECT_DIR$/change_category.py" />
+        <option value="$PROJECT_DIR$/change.py" />
+        <option value="$PROJECT_DIR$/Records/2019_1.json" />
         <option value="$PROJECT_DIR$/deal_category.py" />
+        <option value="$PROJECT_DIR$/Records/2018_12.json" />
+        <option value="$PROJECT_DIR$/change_id.py" />
         <option value="$PROJECT_DIR$/deal_process.py" />
         <option value="$PROJECT_DIR$/account_book.py" />
+        <option value="$PROJECT_DIR$/Records/2019_2.json" />
+        <option value="$PROJECT_DIR$/deal_statistics.py" />
       </list>
     </option>
   </component>
@@ -92,6 +121,24 @@
     <option name="width" value="1297" />
     <option name="height" value="701" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>JSON and JSON5</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>JsonStandardCompliance</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -105,11 +152,24 @@
               <item name="AccountBook" type="b2602c69:ProjectViewProjectNode" />
               <item name="AccountBook" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="AccountBook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AccountBook" type="462c0819:PsiDirectoryNode" />
+              <item name="Config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AccountBook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AccountBook" type="462c0819:PsiDirectoryNode" />
+              <item name="Records" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="reference.idesettings.quicklists" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -123,7 +183,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.account_book">
     <configuration name="account_book" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AccountBook" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,9 +205,97 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="add_id" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AccountBook" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/add_id.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="change" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AccountBook" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/change.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="change_category" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AccountBook" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/change_category.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="change_id" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AccountBook" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/change_id.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.account_book" />
+        <item itemvalue="Python.change_id" />
+        <item itemvalue="Python.change" />
+        <item itemvalue="Python.change_category" />
+        <item itemvalue="Python.add_id" />
       </list>
     </recent_temporary>
   </component>
@@ -173,12 +321,12 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992272" weight="0.3284553" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992272" weight="0.95114005" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4992272" weight="0.3284553" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007728" side_tool="true" weight="0.3284553" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4992272" weight="0.3284553" />
@@ -187,41 +335,128 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/deal_category.py">
+    <entry file="file://$PROJECT_DIR$/Records/2018_09.json" />
+    <entry file="file://$PROJECT_DIR$/Records/2018_11_new.json" />
+    <entry file="file://$PROJECT_DIR$/Records/2018_12_new.json" />
+    <entry file="file://$PROJECT_DIR$/adjust_records.py" />
+    <entry file="file://$PROJECT_DIR$/Records/2018_9_new.json" />
+    <entry file="file://$PROJECT_DIR$/Records/2018_10_new.json" />
+    <entry file="file://$PROJECT_DIR$/add_id.py" />
+    <entry file="file://$PROJECT_DIR$/Config/new_category.json" />
+    <entry file="file://$PROJECT_DIR$/change_category.py" />
+    <entry file="file://$PROJECT_DIR$/Records/2018_11.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <marker date="1535291047751" expanded="true" signature="86:91" ph="..." />
-          </folding>
+        <state>
+          <caret column="9722" selection-start-column="9722" selection-end-column="9722" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Records/2018_9.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="63" selection-start-column="55" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Records/2018_10.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="68" lean-forward="true" selection-start-column="68" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/change.py" />
+    <entry file="file://$PROJECT_DIR$/Records/2018_12.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15209" selection-start-column="15209" selection-end-column="15209" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/change_id.py" />
+    <entry file="file://$PROJECT_DIR$/Records/2019_2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2837" selection-start-column="2837" selection-end-column="2837" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deal_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="1605">
+          <caret line="107" column="105" selection-start-line="107" selection-start-column="105" selection-end-line="107" selection-end-column="105" />
           <folding>
-            <element signature="e#25#43#0" expanded="true" />
-            <marker date="1535294068890" expanded="true" signature="228:233" ph="..." />
+            <element signature="e#50#61#0" expanded="true" />
+            <marker date="1549436501343" expanded="true" signature="324:329" ph="..." />
+            <marker date="1549436501343" expanded="true" signature="1697:1702" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/account_book.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        <state relative-caret-position="309">
+          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
           <folding>
             <element signature="e#25#43#0" expanded="true" />
-            <marker date="1535294068858" expanded="true" signature="434:437" ph="..." />
+            <marker date="1549505247525" expanded="true" signature="877:880" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Config/category.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="53" lean-forward="true" selection-start-column="53" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deal_category.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <marker date="1549369656414" expanded="true" signature="191:196" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Records/2019_1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="63" selection-start-column="55" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deal_statistics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="18" />
+          <folding>
+            <element signature="e#49#58#0" expanded="true" />
+            <marker date="1549521639234" expanded="true" signature="154:159" ph="..." />
+            <marker date="1549521639234" expanded="true" signature="608:1009" ph="..." />
+            <marker date="1549521639234" expanded="true" signature="1034:1039" ph="..." />
+            <marker date="1549521639234" expanded="true" signature="1068:1073" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
