@@ -31,8 +31,6 @@ def process():
         month_cost_bar()
 
 
-
-
 def year_balance_hist():
     start_year = int(input("请问从哪一年开始统计？"))
     end_year = int(input("请问统计到哪一年为止？"))
@@ -45,11 +43,14 @@ def year_balance_hist():
             else:
                 print("{}无收支记录。".format(record_file_name))
 
+
 def month_balance_hist():
     pass
 
+
 def day_balance_hist():
     pass
+
 
 def month_cost_bar():
     """
