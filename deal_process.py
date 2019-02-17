@@ -8,6 +8,7 @@ import os
 
 from deal_category import Category
 
+
 def add_deal():
     """
     Add a deal record.
@@ -54,6 +55,7 @@ def add_deal():
     json.dump(month_deal_list, open(_RECORD_PATH + record_file_name, 'w'))
 
     print("\n已保存。\n")
+
 
 def get_monthly_deal(year, month):
     """
