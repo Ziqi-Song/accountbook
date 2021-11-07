@@ -33,6 +33,7 @@ def button_callback():
             'month': int(combobox_month.get()),
             'day': int(combobox_day.get()),
         },
+        'price': float(entry_price.get()),
         'deal_type': deal_type.get(),
         'category': listbox_category.get(listbox_category.curselection()),
         'note': text_note.get(1.0, "end"),
@@ -111,7 +112,13 @@ for v in range(1, 13):
 combobox_month = ttk.Combobox(master=root, width=5, state='readonly', values=months)
 combobox_month.current(month-1)
 def combobox_month_callback(*args):
-    return int(combobox_month.get())
+    selected_year = int(combobox_year.get())
+    selected_month = int(combobox_month.get())
+    days = []
+    for v in range(1, calendar._monthlen(selected_year, selected_month) + 1):
+        days.append(v)
+    combobox_day.config(values=days)
+    return selected_month
 combobox_month.bind("<<ComboboxSelected>>", combobox_month_callback)
 combobox_month.place(x=430, y=100)
 # Day ComboBox
