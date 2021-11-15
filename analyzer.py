@@ -3,6 +3,7 @@ from tkinter import messagebox
 from tkinter import ttk
 from PIL import Image, ImageTk
 import time
+import datetime
 import calendar
 from deal_category import Category
 import json
@@ -24,6 +25,19 @@ def getCurrentDate():
     day = int(time.strftime('%d', time.localtime()))
     return year, month, day
 
+def dateInPeriod(date, start, end):
+    current_date = datetime.datetime.strptime(f"{date['year']}-{date['month']}-{date['day']}", "%Y-%m-%d")
+    start_date = datetime.datetime.strptime(f"{start['year']}-{start['month']}-{start['day']}", "%Y-%m-%d")
+    end_date = datetime.datetime.strptime(f"{end['year']}-{end['month']}-{end['day']}", "%Y-%m-%d")
+    delta_current_start = current_date - start_date
+    delta_end_current = end_date - current_date
+    if delta_current_start.days >= 0 and delta_end_current.days >= 0:
+        return TRUE
+    else:
+        return FALSE
+
+
+
 year, month, day = getCurrentDate()
 category_manager = Category()
 
@@ -43,6 +57,7 @@ label_date_end = Label(master=root, text="结束日期：")
 label_date_end.place(x=350, y=10)
 label_category = Label(master=root, text="分类：")
 label_category.place(x=700, y=10)
+
 
 # ComboBox
 # Year ComboBox
@@ -71,14 +86,26 @@ for v in range(1, 13):
 combobox_month_start = ttk.Combobox(master=root, width=5, state='readonly', values=months)
 combobox_month_start.current(month-1)
 def combobox_month_start_callback(*args):
-    return int(combobox_month_start.get())
+    selected_year = int(combobox_year_start.get())
+    selected_month = int(combobox_month_start.get())
+    days = []
+    for v in range(1, calendar._monthlen(selected_year, selected_month) + 1):
+        days.append(v)
+    combobox_day_start.config(values=days)
+    return selected_month
 combobox_month_start.bind("<<ComboboxSelected>>", combobox_month_start_callback)
 combobox_month_start.place(x=160, y=10)
 
 combobox_month_end = ttk.Combobox(master=root, width=5, state='readonly', values=months)
 combobox_month_end.current(month-1)
 def combobox_month_end_callback(*args):
-    return int(combobox_month_end.get())
+    selected_year = int(combobox_year_end.get())
+    selected_month = int(combobox_month_end.get())
+    days = []
+    for v in range(1, calendar._monthlen(selected_year, selected_month) + 1):
+        days.append(v)
+    combobox_day_end.config(values=days)
+    return selected_month
 combobox_month_end.bind("<<ComboboxSelected>>", combobox_month_end_callback)
 combobox_month_end.place(x=500, y=10)
 # Day ComboBox
@@ -112,46 +139,55 @@ combobox_category.bind("<<ComboboxSelected>>", combobox_category_callback)
 combobox_category.place(x=750, y=10)
 
 
+# Button
+# Date VS Cost
+def btn_callback_date_vs_cost():
+    # 设置窗口大小
+    params = {
+        'figure.figsize': '10, 4'
+    }
+    plt.rcParams.update(params)
+    # 按category统计
+    records = json.load(open("./data/record.json", "r"))
+    category_cost = {}
+    for category in category_manager.category_list:
+        category_cost[category["Chinese name"]] = 0
+    for record in tqdm(records):
+        record_date = {}
+        record_date['year'] = record['date']['year']
+        record_date['month'] = record['date']['month']
+        record_date['day'] = record['date']['day']
+        start_date = {}
+        start_date['year'] = int(combobox_year_start.get())
+        start_date['month'] = int(combobox_month_start.get())
+        start_date['day'] = int(combobox_day_start.get())
+        end_date = {}
+        end_date['year'] = int(combobox_year_end.get())
+        end_date['month'] = int(combobox_month_end.get())
+        end_date['day'] = int(combobox_day_end.get())
+        if dateInPeriod(record_date, start_date, end_date):
+            category_cost[record["category"]] += record["price"]
 
+    data = []
+    labels = []
+    for key in category_cost.keys():
+        labels.append(key)
+        data.append(category_cost[key])
 
+    # 创建Canvas
+    fig = plt.figure()
+    subfig = plt.subplot(1, 1, 1)
 
+    x = np.arange(0, 10, 1)
+    y = category_cost.values()
+    plt.bar(range(len(data)), data, width=0.5, align='center', tick_label=labels)
 
+    canvas = FigureCanvasTkAgg(fig, master=root)
+    canvas.draw()
+    canvas.get_tk_widget().place(x=10, y=50)
+btn_date_vs_cost = Button(master=root, text="日期VS支出", command=btn_callback_date_vs_cost)
+btn_date_vs_cost.place(x=1100, y=30, width=120, height=40)
 
-
-params = {
-    'figure.figsize': '10, 4'
-}
-plt.rcParams.update(params)
-
-
-
-# 按category统计
-records = json.load(open("./data/record.json", "r"))
-
-category_cost = {}
-for category in category_manager.category_list:
-    category_cost[category["Chinese name"]] = 0
-
-for record in tqdm(records):
-    category_cost[record["category"]] += record["price"]
-
-data = []
-labels = []
-for key in category_cost.keys():
-    labels.append(key)
-    data.append(category_cost[key])
-
-#创建Canvas
-fig = plt.figure()
-subfig = plt.subplot(1, 1, 1)
-
-x = np.arange(0, 10, 1)
-y = category_cost.values()
-plt.bar(range(len(data)), data, width=0.5, align='center', tick_label=labels)
-
-canvas = FigureCanvasTkAgg(fig, master=root)
-canvas.draw()
-canvas.get_tk_widget().place(x=10, y=50)
 
 # 进入消息循环
 root.mainloop()
