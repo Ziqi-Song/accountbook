@@ -134,13 +134,13 @@ for v in category_dict:
 combobox_category = ttk.Combobox(master=root, width=5, state='readonly', values=categories)
 combobox_category.current(0)
 def combobox_category_callback(*args):
-    return int(combobox_category.get())
+    return combobox_category.get()
 combobox_category.bind("<<ComboboxSelected>>", combobox_category_callback)
 combobox_category.place(x=750, y=10)
 
 
 # Button
-# Date VS Cost
+# 指定时间段内的各类别支出
 def btn_callback_date_vs_cost():
     # 设置窗口大小
     params = {
@@ -181,12 +181,121 @@ def btn_callback_date_vs_cost():
     x = np.arange(0, 10, 1)
     y = category_cost.values()
     plt.bar(range(len(data)), data, width=0.5, align='center', tick_label=labels)
+    plt.grid(linestyle="-", axis='y', alpha=0.4)
+    for a, b in zip(labels, data):
+        plt.text(labels.index(a), b-0.3, '%.2f'%b, ha='center', va='bottom', fontsize=10)
 
     canvas = FigureCanvasTkAgg(fig, master=root)
     canvas.draw()
     canvas.get_tk_widget().place(x=10, y=50)
 btn_date_vs_cost = Button(master=root, text="日期VS支出", command=btn_callback_date_vs_cost)
-btn_date_vs_cost.place(x=1100, y=30, width=120, height=40)
+btn_date_vs_cost.place(x=1100, y=30, width=120, height=30)
+
+# 某一特定类别在每个月的支出
+def btn_callback_month_vs_one_category():
+    # 设置窗口大小
+    params = {
+        'figure.figsize': '10, 4'
+    }
+    plt.rcParams.update(params)
+    # 按category统计
+    records = json.load(open("./data/record.json", "r"))
+    category_cost = {}
+    for record in tqdm(records):
+        record_date = {}
+        record_date['year'] = record['date']['year']
+        record_date['month'] = record['date']['month']
+        record_date['day'] = record['date']['day']
+        start_date = {}
+        start_date['year'] = int(combobox_year_start.get())
+        start_date['month'] = int(combobox_month_start.get())
+        start_date['day'] = int(combobox_day_start.get())
+        end_date = {}
+        end_date['year'] = int(combobox_year_end.get())
+        end_date['month'] = int(combobox_month_end.get())
+        end_date['day'] = int(combobox_day_end.get())
+        if dateInPeriod(record_date, start_date, end_date) and record["category"] == combobox_category.get():
+            key = str(record_date['year'])+"-"+str(record_date['month'])
+            if key not in category_cost.keys():
+                category_cost[key] = 0
+            else:
+                category_cost[key] += record["price"]
+
+    data = []
+    labels = []
+    for key in category_cost.keys():
+        labels.append(key)
+        data.append(category_cost[key])
+
+    # 创建Canvas
+    fig = plt.figure()
+    subfig = plt.subplot(1, 1, 1)
+
+    x = np.arange(0, 10, 1)
+    y = category_cost.values()
+    plt.bar(range(len(data)), data, width=0.5, align='center', tick_label=labels)
+    plt.grid(linestyle="-", axis='y', alpha=0.4)
+    for a, b in zip(labels, data):
+        plt.text(labels.index(a), b-0.3, '%.2f'%b, ha='center', va='bottom', fontsize=10)
+
+    canvas = FigureCanvasTkAgg(fig, master=root)
+    canvas.draw()
+    canvas.get_tk_widget().place(x=10, y=50)
+btn_month_vs_one_category = Button(master=root, text="月份VS品类支出", command=btn_callback_month_vs_one_category)
+btn_month_vs_one_category.place(x=1100, y=70, width=120, height=30)
+
+# 每个月的总支出
+def btn_callback_month_vs_cost():
+    # 设置窗口大小
+    params = {
+        'figure.figsize': '10, 4'
+    }
+    plt.rcParams.update(params)
+    # 按category统计
+    records = json.load(open("./data/record.json", "r"))
+    category_cost = {}
+    for record in tqdm(records):
+        record_date = {}
+        record_date['year'] = record['date']['year']
+        record_date['month'] = record['date']['month']
+        record_date['day'] = record['date']['day']
+        start_date = {}
+        start_date['year'] = int(combobox_year_start.get())
+        start_date['month'] = int(combobox_month_start.get())
+        start_date['day'] = int(combobox_day_start.get())
+        end_date = {}
+        end_date['year'] = int(combobox_year_end.get())
+        end_date['month'] = int(combobox_month_end.get())
+        end_date['day'] = int(combobox_day_end.get())
+        if dateInPeriod(record_date, start_date, end_date):
+            key = str(record_date['year'])+"-"+str(record_date['month'])
+            if key not in category_cost.keys():
+                category_cost[key] = 0
+            else:
+                category_cost[key] += record["price"]
+
+    data = []
+    labels = []
+    for key in category_cost.keys():
+        labels.append(key)
+        data.append(category_cost[key])
+
+    # 创建Canvas
+    fig = plt.figure()
+    subfig = plt.subplot(1, 1, 1)
+
+    x = np.arange(0, 10, 1)
+    y = category_cost.values()
+    plt.bar(range(len(data)), data, width=0.5, align='center', tick_label=labels)
+    plt.grid(linestyle="-", axis='y', alpha=0.4)
+    for a, b in zip(labels, data):
+        plt.text(labels.index(a), b - 0.3, '%.2f' % b, ha='center', va='bottom', fontsize=10)
+
+    canvas = FigureCanvasTkAgg(fig, master=root)
+    canvas.draw()
+    canvas.get_tk_widget().place(x=10, y=50)
+btn_month_vs_cost = Button(master=root, text="月份VS总支出", command=btn_callback_month_vs_cost)
+btn_month_vs_cost.place(x=1100, y=110, width=120, height=30)
 
 
 # 进入消息循环
