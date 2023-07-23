@@ -141,7 +141,10 @@ strvar_iterms = StringVar(value=categories)
 listbox_category = Listbox(master=root, height=len(categories), selectmode="single", listvariable=strvar_iterms)
 listbox_category.place(x=350, y=200)
 def listbox_category_callback(*args):
-    return listbox_category.get(listbox_category.curselection())
+    if len(listbox_category.curselection()) == 0:
+        return listbox_category.get(0)
+    else:
+        return listbox_category.get(listbox_category.curselection())
 listbox_category.bind("<<ListboxSelect>>", listbox_category_callback)
 
 # Entry
